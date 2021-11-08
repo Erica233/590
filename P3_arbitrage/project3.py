@@ -55,6 +55,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
         for neigh in u.neigh:
             # if a dist of a vertex changes, a cycle is detected
             if neigh.dist > u.dist + adjMat[u.rank][neigh.rank] + tol:
+                neigh.prev = u
                 vertex_in_cycle = neigh
                 break
         if vertex_in_cycle:
