@@ -133,15 +133,12 @@ def tsp(adjList, start):
     stack.append(start)
     while len(stack) != 0:
         curr = stack.pop()
-        if curr.rank not in stack:
-            tour.append(curr.rank)
+        tour.append(curr.rank)
         for neighbor in curr.mstN:
             if not neighbor.visited:
                 neighbor.visited = True
                 stack.append(neighbor)
     tour.append(start.rank)
-    #print('tour: ', tour)
-
 
     return tour
 
